@@ -18,7 +18,10 @@ public class MyView extends View {
 
     @Override    protected void onDraw(Canvas canvas) {
         Paint paint = new Paint();
-        //paint.setColor(Color.RED); // цвет маркера
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.BLUE);
+        Rect sky = new Rect(0,0, 1200, 1000);
+        canvas.drawRect(sky, paint);
         paint.setStrokeWidth(10);
         int y = 50;
         int x = 50;
@@ -34,7 +37,6 @@ public class MyView extends View {
             path3.moveTo(0, 0);
             y3 += 50;
             x3 -= 50;
-
         }
         paint.setStyle(Paint.Style.FILL);
         canvas.drawCircle(x, y, 100,paint);
@@ -43,7 +45,7 @@ public class MyView extends View {
         canvas.drawOval(rectF, paint);
         Rect rect = new Rect(0,1000, 1200, 10000);
         canvas.drawRect(rect, paint);
-        paint.setColor(Color.rgb(150, 75, 0));
+        paint.setColor(Color.rgb(63, 37, 18));
         Rect rect1 = new Rect(780,900, 820, 1000);
         canvas.drawRect(rect1, paint);
         paint.setColor(Color.LTGRAY);
@@ -55,60 +57,55 @@ public class MyView extends View {
         path.lineTo(250,400);
         canvas.drawPath(path, paint);
 
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(Color.rgb(255, 215, 0));
+        paint.setStrokeWidth(5);
+        Path path4 = new Path();
+        int y4 = 670;
+        int x4 = 260;
+        int y5 = 820;
+        int x5 = 370;
+        path4.moveTo(x4,y4);
+        while (x4 != 130 && y4 != 790){
+            path4.lineTo(x5, y5);
+            canvas.drawPath(path4,paint);
+            y4 += 10;
+            x4 -= 10;
+            y5 += 10;
+            x5 -= 10;
+            path4.moveTo(x4,y4);
+        }
 
+        Path path6 = new Path();
+        int y7 = 1200;
+        int x6 = 200;
+        int y6 = 1000;
+        path6.moveTo(x6,y6);
+        while (x6 != 300){
+            path6.lineTo(x6, y7);
+            canvas.drawPath(path6,paint);
+            x6 += 10;
+            path6.moveTo(x6,y6);
+        }
+
+        paint.setStrokeWidth(10);
         int y1 = 800;
         int x1 = 250;
         paint.setColor(Color.BLACK);
-        paint.setStyle(Paint.Style.STROKE);
-        canvas.drawCircle(x1, y1, 100,paint);
+        canvas.drawCircle(x1, y1, 80,paint);
 
-        paint.setColor(Color.BLACK);
+        paint.setColor(Color.rgb(63, 37, 18));
         paint.setStrokeWidth(100);
         canvas.drawArc(250,900, 2000, 1500, 90, 90,false, paint);
         paint.setStrokeWidth(10);
+        paint.setColor(Color.BLACK);
         canvas.drawArc(200,1000, 300, 1400, 180, 180,false, paint);
-       /* paint.setStyle(Paint.Style.FILL);
 
-        Path path1 = new Path();
+        paint.setStrokeWidth(50);
+        paint.setColor(Color.LTGRAY);
+        paint.setStyle(Paint.Style.STROKE);
+        canvas.drawCircle(250, 800, 110,paint);
 
-        path.moveTo(400,800);
-        path.lineTo(100,800);
-        path.lineTo(250,400);
-        int y1 = 800;
-        int x1 = 200;
-        while (x1 != 799 && y1 != 199){
-            path.moveTo(x1,y1);
-            path.lineTo(x1,y1);
-            //path.lineTo(x1,y1);
-            // canvas.drawPath(path1, paint);
-        }
-
-*/
-
-
-
-
-        /*
-        // canvas.drawRect(rect, paint);
-        //paint.setColor(Color.rgb(255,1,22));
-        //paint.setColor(Color.parseColor("#00ff00"));
-        paint.setStyle(Paint.Style.STROKE); // заливка
-        paint.setAntiAlias(true); // сглаживание
-        paint.setTextSize(100); // размер текста
-        paint.setStrokeWidth(10); // толщина маркера
-        int y = getHeight()/2;        int x = getWidth()/2;
-        //canvas.drawColor(Color.BLUE); // цвет фона        canvas.drawCircle(x, y, 200,paint);
-        paint.setColor(Color.YELLOW);        canvas.drawLine(100,100,200,200, paint);
-        // Rect rect = new Rect(100,100, 1000, 200);        // canvas.drawRect(rect, paint);
-        RectF rectF = new RectF(100,100, 1000, 200);        canvas.drawOval(rectF, paint);
-        canvas.drawText("Happy New Year",100,300,paint);        // текст под углом
-        float rotate_center_x = 200; //центр поворота холста по оси X
-        float rotate_center_y = 200; // центр поворота холста по оси Y
-        float rotate_angle = 45; //угол поворота// поворачиваем холст
-        canvas.rotate(-rotate_angle, rotate_center_x, rotate_center_y);
-        canvas.drawText("Samsung",100,700,paint);        canvas.rotate(rotate_angle, rotate_center_x,
-        rotate_center_y);        Path path = new Path();        path.moveTo(100,100);
-        path.lineTo(500,500);        path.lineTo(100,400);        paint.setColor(Color.WHITE);
-        canvas.drawPath(path, paint);*/
+        canvas.drawArc(170,970, 330, 1430, 180, 180,false, paint);
     }
 }
